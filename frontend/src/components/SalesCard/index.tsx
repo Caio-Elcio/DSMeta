@@ -1,20 +1,17 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Sale } from "../../models/sale";
+import DatePicker from "react-datepicker";
 import { BASE_URL } from "../../utils/request";
+import { Sale } from "../../models/sale";
+import axios from "axios";
 import NotificationButton from "../NotificationButton";
 import "./styles.css";
 
 function SalesCard() {
-
     const min = new Date(new Date().setDate(new Date().getDate() - 365));
     const max = new Date();
-
     const [minDate, setMinDate] = useState(min);
     const [maxDate, setMaxDate] = useState(max);
-
     const [sales, setSales] = useState<Sale[]>([]);
 
     useEffect(() => {
